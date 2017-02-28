@@ -1,0 +1,23 @@
+@startuml
+class User
+class Role
+class Menu
+class UserRole
+class RoleMenu
+note "通过UserRole" as N1
+note "通过RoleMenu" as N2
+User *.. N1
+N1 .. Role
+Role *.. N2
+N2 .. Menu
+class UserRole{
+    user_id
+    role_id
+}
+
+class RoleMenu{
+    role_id
+    menu_id
+}
+
+@enduml
