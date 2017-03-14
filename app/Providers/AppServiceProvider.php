@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Log;
+use Illuminate\Support\Facades\DB;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -13,7 +15,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        //此处为了记录DB的SQL
+        DB::listen(function ($query) {
+            Log::info($query->sql,['bindings'=>$query->bindings,'time'=>$query->time]);
+        });
     }
 
     /**

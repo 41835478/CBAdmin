@@ -7,5 +7,5 @@
 @stop
 
 @section('content')
-    <p>You are logged in!</p>
+    <p>欢迎使用CoreBaoAdmin</p>
 @stop

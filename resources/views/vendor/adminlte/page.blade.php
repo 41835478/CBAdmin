@@ -57,6 +57,9 @@
                 <div class="navbar-custom-menu">
 
                     <ul class="nav navbar-nav">
+                        @if(Auth::user())
+                            <p class="navbar-text font-light">欢迎您：{{ Auth::user()->name }}</p>
+                        @endif
                         <li>
                             @if(config('adminlte.logout_method') == 'GET' || !config('adminlte.logout_method') && version_compare(\Illuminate\Foundation\Application::VERSION, '5.3.0', '<'))
                                 <a href="{{ url(config('adminlte.logout_url', 'auth/logout')) }}">
@@ -118,16 +121,25 @@
                 @yield('content')
 
             </section>
+
             <!-- /.content -->
             @if(config('adminlte.layout') == 'top-nav')
             </div>
             <!-- /.container -->
             @endif
+
         </div>
         <!-- /.content-wrapper -->
-
+            <footer class="main-footer">
+                <div class="pull-right hidden-xs">
+                    <b>Version</b> 0.1.1
+                </div>
+                <strong>Copyright © {{ date('Y') }} <a href="http://blog.corebao.com">CBAdmin</a>.</strong> All rights
+                reserved.
+            </footer>
     </div>
     <!-- ./wrapper -->
+
 @stop
 
 @section('adminlte_js')

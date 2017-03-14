@@ -15,7 +15,7 @@ return [
 
     'title' => 'CBAdmin',
 
-    'title_prefix' => '',
+    'title_prefix' => 'CBAdmin-',
 
     'title_postfix' => '',
 
@@ -217,6 +217,6 @@ return [
     */
 
     'plugins' => [
-        'datatables' => true,
+        'datatables' => false,
     ],
 ];
