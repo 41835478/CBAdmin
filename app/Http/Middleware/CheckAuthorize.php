@@ -16,11 +16,6 @@ class CheckAuthorize
      */
     public function handle($request, Closure $next)
     {
-        $menus = $request->user()->getAuthorizeMenus();
-
-        //设置菜单
-        config(['adminlte.menu'=>$menus]);
-
         $action = Route::currentRouteAction();
 
         //这里需要检查 action,有可能是空的

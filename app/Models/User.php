@@ -107,7 +107,7 @@ class User extends Authenticatable
                 $menu['submenu'] = $this -> formatMenus($menus, $menu['id']);
                 $item = [
                     'text' => $menu['name'],
-                    'url'  => $menu['url'],
+                    'url'  => $menu['url'] ? url($menu['url']) : '',
 
                 ];
                 if ($menu['icon']){
@@ -116,9 +116,7 @@ class User extends Authenticatable
                 if ($menu['submenu']) {
                     $item['submenu'] = $menu['submenu'];
                 }
-                if ($menu['active']) {
-                    $item['active'] = [$menu['active']];
-                }
+
                 $tree[] = $item;
             }
         }

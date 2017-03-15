@@ -50,5 +50,8 @@ Route::group(['middleware' => ['auth','authorize'],'prefix'=>'admin','namespace'
     Route::post('role/updatePermission/{id}', 'RoleController@updatePermission');
     Route::any('role/user/{id}', 'RoleController@user');
     Route::any('role/deleteUser/{id}/{userId}', 'RoleController@deleteUser');
+
+    //用户
+    Route::any('user/index','UserController@index');
 });
 

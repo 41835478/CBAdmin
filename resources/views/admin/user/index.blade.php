@@ -21,7 +21,7 @@
                 <div class="box-header with-border">
                     <div class="box-title">{{ $title }}</div>
                     <div class="box-tools pull-right">
-                        <a href="{{ url('admin/role/create') }}" class="btn btn-primary"><i class="fa fa-plus"></i>创建角色</a>
+                       {{-- <a href="{{ url('admin/role/create') }}" class="btn btn-primary"><i class="fa fa-plus"></i>创建角色</a>--}}
                     </div>
                 </div>
                 <div class="box-body table-responsive">
@@ -29,31 +29,29 @@
                 <table class="table table-bordered table-responsive table-hover">
                     <thead>
                     <tr>
-                        <th  align="center">排序</th>
                         <th  align="center">ID</th>
-                        <th  align="left">角色名称</th>
-                        <th  align="left">用户</th>
-                        <th  align="center">操作</th>
+                        <th  align="left">名称</th>
+                        <th  align="left">email</th>
+                        <th  align="left">角色</th>
+                        {{--<th  align="center">操作</th>--}}
                     </tr>
                     </thead>
                     @foreach($data as $val)
                         <tr>
-                            <td>{{ $val->sort }}</td>
                             <td>{{ $val->id }}</td>
                             <td>{{ $val->name }}</td>
-                            <td>{{ $val->users->implode('name',',') }}</td>
-                            <td>
+                            <td>{{ $val->email }}</td>
+                            <td>{{ $val->roles->implode('name',',') }}</td>
+                            {{--<td>
                                 <a href="{{ url('admin/role/update',['id'=>$val->id]) }}"  class="btn btn-primary btn-xs" title="编辑"><i class="fa fa-edit"></i></a>
                                 <a href="{{ url('admin/role/permission',['id'=>$val->id]) }}"  class="btn btn-primary btn-xs" title="编辑权限"><i class="fa fa-users"></i></a>
                                 <a href="{{ url('admin/role/user',['id'=>$val->id]) }}"  class="btn btn-primary btn-xs" title="设置用户"><i class="fa fa-user"></i></a>
                                 <a href="{{ url('admin/role/delete',['id'=>$val->id]) }}"  class="btn btn-primary btn-xs" title="删除" onclick="return confirm('确定要删除该角色吗？')"><i class="fa fa-trash"></i></a>
-                            </td>
+                            </td>--}}
                         </tr>
                     @endforeach
                 </table>
-                    <div class="pull-right">
-                        {{ $data->render() }}
-                    </div>
+                    <div class="pull-right"> {{ $data->render() }}</div>
                 </div>
             </div>
         </div>

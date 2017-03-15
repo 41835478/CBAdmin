@@ -26,7 +26,7 @@
                 </div>
                 <div class="box-body table-responsive">
                     @include('admin.message')
-                <table class="table table-bordered table-responsive table-hover">
+                <table class="table table-bordered table-hover">
                     <thead>
                     <tr>
                         <th  align="center">排序</th>
