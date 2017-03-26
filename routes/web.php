@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth/login');
 });
 
 Auth::routes();
@@ -20,8 +20,6 @@ Auth::routes();
 Route::get('/home', 'HomeController@index');
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index');
 
 Route::get('/tree', function () {
     return view('tree');
@@ -53,5 +51,14 @@ Route::group(['middleware' => ['auth','authorize'],'prefix'=>'admin','namespace'
 
     //用户
     Route::any('user/index','UserController@index');
+
+    //敏感词
+    //列表
+    Route::get('words/index','SensitiveWordController@index');
+    Route::any('words/create','SensitiveWordController@create');
+
+    //登录日志
+
+    Route::get('logs','UserLoginLogController@index');
 });
 
